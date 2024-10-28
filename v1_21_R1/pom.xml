@@ -11,8 +11,27 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <craftbukkit.version>1.21.1-R0.1-SNAPSHOT</craftbukkit.version>
     </properties>
-
+<repositories>
+    <repository>
+        <id>spigotmc</id>
+        <url>https://hub.spigotmc.org/nexus/repository/spigot/</url>
+    </repository>
+    <repository>
+        <id>brigadier</id>
+        <url>https://repo.minebench.de</url>
+    </repository>
+    <repository>
+        <id>leafmc</id>
+        <url>https://maven.nostal.ink/repository/maven-snapshots/</url>
+    </repository>
+</repositories>
     <dependencies>
+        <dependency>
+            <groupId>net.md-5</groupId>
+            <artifactId>bungeecord-chat</artifactId>
+            <version>1.20-R0.1</version>
+            <scope>provided</scope>
+        </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>citizens-main</artifactId>
@@ -25,7 +44,20 @@
             <version>${craftbukkit.version}</version>
             <classifier>remapped-mojang</classifier>
             <scope>provided</scope>
-        </dependency> 
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.mojang/brigadier -->
+        <dependency>
+            <groupId>com.mojang</groupId>
+            <artifactId>brigadier</artifactId>
+            <version>1.0.18</version>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.dreeam.leaf</groupId>
+            <artifactId>leaf-api</artifactId>
+            <version>1.21.1-R0.1-SNAPSHOT</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
     
     <build>
@@ -37,8 +69,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>${maven-compiler-plugin.version}</version>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <source>21</source>
+                    <target>21</target>
                 </configuration>
             </plugin>
             <plugin>
